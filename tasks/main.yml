@@ -6,21 +6,22 @@
     pkg: "{{ item }}"
     state: installed
   with_items:
-    - libsemanage-python
     - samba-common
     - samba
     - samba-client
   tags: samba
+  when: "'{{ansible_pkg_mgr}}' == 'yum'"
 
-- name: Make sure SELinux boolean settings are correct
-  seboolean:
-    name: "{{ item }}"
-    state: yes
-    persistent: yes
+- name: Install Samba packages
+  apt:
+    pkg: "{{ item }}"
+    state: installed
   with_items:
-    - samba_enable_home_dirs
-    - samba_export_all_rw
+    - samba-common
+    - samba
+    - samba-client
   tags: samba
+  when: "'{{ansible_pkg_mgr}}' == 'apt'"
 
 - name: Create Samba shares root directory
   file:
