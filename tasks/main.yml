@@ -72,14 +72,14 @@
 
 - name: Start Samba service
   service:
-    name: smb
+    name: smbd
     state: started
     enabled: yes
   tags: samba
 
 - name: Start WindBind service
   service:
-    name: nmb
+    name: nmbd
     state: started
     enabled: yes
   tags: samba

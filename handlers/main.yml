@@ -2,10 +2,10 @@
 ---
 - name: Restart Samba
   service:
-    name: smb
+    name: smbd
     state: restarted
 
 - name: Restart WinBind
   service:
-    name: nmb
+    name: nmbd
     state: restarted
