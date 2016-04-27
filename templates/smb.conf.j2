@@ -60,7 +60,10 @@
 {% endif %}
 {% if share.guest_user is defined %}
   guest ok = yes
-  guest account= {{ share.guest_user }}
+  guest account = {{ share.guest_user }}
+{% endif %}
+{% if share.writable is defined and share.writable %}
+  read only = no
 {% endif %}
 {% if share.write_list is defined %}
   write list = {{ share.write_list }}
