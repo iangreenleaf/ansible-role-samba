@@ -61,6 +61,9 @@
 {% if share.write_list is defined %}
   write list = {{ share.write_list }}
 {% endif %}
+{% if share.user is defined %}
+  force user = {{ share.user }}
+{% endif %}
 {% if share.group is defined %}
   force group = {{ share.group }}
 {% endif %}
