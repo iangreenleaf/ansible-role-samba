@@ -58,8 +58,18 @@
 {% if share.valid_users is defined %}
   valid users= {{ share.valid_users }}
 {% endif %}
+{% if share.guest_user is defined %}
+  guest ok = yes
+  guest account = {{ share.guest_user }}
+{% endif %}
+{% if share.writable is defined and share.writable %}
+  read only = no
+{% endif %}
 {% if share.write_list is defined %}
   write list = {{ share.write_list }}
+{% endif %}
+{% if share.user is defined %}
+  force user = {{ share.user }}
 {% endif %}
 {% if share.group is defined %}
   force group = {{ share.group }}
